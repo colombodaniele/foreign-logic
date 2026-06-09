@@ -700,6 +700,16 @@ h1 {
   outline: 2px solid rgba(255, 106, 88, 0.22);
 }
 
+.website-credit {
+  color: rgba(187, 180, 170, 0.78);
+  font-family: var(--title-font);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.45;
+  margin: 32px 0 0;
+  text-transform: uppercase;
+}
+
 .tour-list {
   display: grid;
   gap: 12px;
