@@ -750,6 +750,7 @@ h1 {
   .hero {
     background-position: center center;
     background-size: auto 106%;
+    overflow: hidden;
     padding-bottom: 72px;
     padding-top: 180px;
   }
@@ -767,7 +768,11 @@ h1 {
   }
 
   .hero-logo {
+    left: 50%;
     max-height: min(360px, 46svh);
+    max-width: none;
+    position: relative;
+    transform: translateX(-50%);
     width: min(1290px, 150vw);
   }
 
