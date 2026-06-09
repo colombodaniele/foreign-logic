@@ -388,7 +388,7 @@ h1 {
   opacity: 1;
 }
 
-.member-photo-slide-contain {
+.member-photo-slide.member-photo-slide-contain {
   object-fit: contain;
 }
 
