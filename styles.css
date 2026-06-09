@@ -767,8 +767,8 @@ h1 {
   }
 
   .hero-logo {
-    max-height: min(240px, 31svh);
-    width: min(860px, 100vw);
+    max-height: min(360px, 46svh);
+    width: min(1290px, 150vw);
   }
 
   .hero-line {
