@@ -724,34 +724,37 @@ h1 {
 
 @media (max-width: 760px) {
   .site-header {
-    align-items: flex-start;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(5, 5, 4, 0.78), rgba(5, 5, 4, 0));
     flex-direction: column;
-    gap: 14px;
-    padding-top: 18px;
+    gap: 10px;
+    padding: 14px 14px 22px;
   }
 
   .nav-links {
-    justify-content: flex-start;
+    gap: 6px;
+    justify-content: center;
   }
 
   .nav-links a {
-    font-size: 12px;
-    padding: 9px 11px;
+    font-size: 11px;
+    padding: 8px 9px;
   }
 
   .brand-mark {
-    height: 48px;
-    width: 76px;
+    height: 42px;
+    width: 68px;
   }
 
   .hero {
     background-position: center center;
     background-size: auto 106%;
-    padding-bottom: 54px;
+    padding-bottom: 72px;
+    padding-top: 180px;
   }
 
   .hero-copy {
-    top: 108px;
+    top: clamp(168px, 24svh, 212px);
   }
 
   h1 {
@@ -763,8 +766,8 @@ h1 {
   }
 
   .hero-logo {
-    max-height: 136px;
-    width: min(660px, 96vw);
+    max-height: min(172px, 22svh);
+    width: min(680px, 96vw);
   }
 
   .hero-line {
@@ -800,7 +803,21 @@ h1 {
 
   .photo-credit,
   .copyright-mark {
-    display: none;
+    bottom: max(18px, env(safe-area-inset-bottom));
+    color: rgba(247, 243, 234, 0.76);
+    display: block;
+    font-size: 10px;
+    max-width: 44vw;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.88);
+  }
+
+  .photo-credit {
+    right: 14px;
+    text-align: right;
+  }
+
+  .copyright-mark {
+    left: 14px;
   }
 
   .member-grid,
