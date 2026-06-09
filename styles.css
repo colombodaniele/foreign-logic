@@ -703,7 +703,7 @@ h1 {
 .website-credit {
   color: rgba(187, 180, 170, 0.78);
   font-family: var(--title-font);
-  font-size: 11px;
+  font-size: clamp(7px, 1.9vw, 11px);
   font-weight: 800;
   line-height: 1.45;
   margin: 32px 0 0;
@@ -780,12 +780,12 @@ h1 {
 
   .hero-logo {
     left: 50%;
-    max-height: min(281px, 36svh);
+    max-height: min(271px, 35svh);
     max-width: none;
-    min-width: 118vw;
+    min-width: 114vw;
     position: relative;
     transform: translateX(-50%);
-    width: 118vw;
+    width: 114vw;
   }
 
   .hero-line {
