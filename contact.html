@@ -7,20 +7,20 @@
     <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contact | Foreign Logic</title>
-    <link rel="stylesheet" href="styles.css?v=20260609-formsubmit2">
+    <link rel="stylesheet" href="styles.css?v=20260609-formsubmit3">
   </head>
   <body class="contact-page">
     <!-- Contact page uses the punk-rock artwork as the main visual anchor. -->
     <header class="site-header solid" aria-label="Primary">
-      <a class="brand-mark" href="index.html?v=20260609-formsubmit2" aria-label="Foreign Logic home">
+      <a class="brand-mark" href="index.html?v=20260609-formsubmit3" aria-label="Foreign Logic home">
         <img src="assets/logo/foreign_logic_FL_round_clean_transparent.png" alt="Foreign Logic FL logo">
       </a>
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="band.html?v=20260609-formsubmit2">Lineup</a>
-        <a href="music.html?v=20260609-formsubmit2">Listen</a>
-        <a href="tour.html?v=20260609-formsubmit2">Tour</a>
-        <a href="merch.html?v=20260609-formsubmit2">Merch</a>
-        <a class="active" href="contact.html?v=20260609-formsubmit2">Contact</a>
+        <a href="band.html?v=20260609-formsubmit3">Lineup</a>
+        <a href="music.html?v=20260609-formsubmit3">Listen</a>
+        <a href="tour.html?v=20260609-formsubmit3">Tour</a>
+        <a href="merch.html?v=20260609-formsubmit3">Merch</a>
+        <a class="active" href="contact.html?v=20260609-formsubmit3">Contact</a>
       </nav>
     </header>
 
@@ -69,7 +69,7 @@
               <input type="hidden" name="_subject" value="New message from Foreign Logic website">
               <input type="hidden" name="_template" value="table">
               <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_next" value="https://colombodaniele.github.io/foreign-logic/contact.html?v=20260609-formsubmit2">
+              <input type="hidden" name="_next" value="https://colombodaniele.github.io/foreign-logic/contact.html?v=20260609-formsubmit3&sent=1">
               <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
               <div class="form-row">
                 <label>
@@ -91,6 +91,7 @@
               </label>
               <button class="button button-primary" type="submit">Send</button>
             </form>
+            <p class="contact-thanks" data-contact-thanks hidden>Thanks for getting in touch. We will answer as soon as possible.</p>
             <p class="website-credit">Website development: qwerty.colombo [at] gmail [dot] com</p>
           </section>
         </div>
@@ -116,7 +117,14 @@
       setContactReveal();
       window.addEventListener("scroll", setContactReveal, { passive: true });
       window.addEventListener("resize", setContactReveal);
+
+      if (new URLSearchParams(window.location.search).get("sent") === "1") {
+        const thanksMessage = document.querySelector("[data-contact-thanks]");
+        if (thanksMessage) {
+          thanksMessage.hidden = false;
+        }
+      }
     </script>
-    <script src="site-navigation.js?v=20260609-formsubmit2"></script>
+    <script src="site-navigation.js?v=20260609-formsubmit3"></script>
   </body>
 </html>
