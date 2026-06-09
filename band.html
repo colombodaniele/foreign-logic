@@ -8,20 +8,20 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lineup | Foreign Logic</title>
-    <link rel="stylesheet" href="styles.css?v=20260609-formsubmit4">
+    <link rel="stylesheet" href="styles.css?v=20260610-daniphotos1">
   </head>
   <body>
     <!-- Shared navigation keeps the small static site feeling like one product. -->
     <header class="site-header solid" aria-label="Primary">
-      <a class="brand-mark" href="index.html?v=20260609-formsubmit4" aria-label="Foreign Logic home">
+      <a class="brand-mark" href="index.html?v=20260610-daniphotos1" aria-label="Foreign Logic home">
         <img src="assets/logo/foreign_logic_FL_round_clean_transparent.png" alt="Foreign Logic FL logo">
       </a>
       <nav class="nav-links" aria-label="Main navigation">
-        <a class="active" href="band.html?v=20260609-formsubmit4">Lineup</a>
-        <a href="music.html?v=20260609-formsubmit4">Listen</a>
-        <a href="tour.html?v=20260609-formsubmit4">Tour</a>
-        <a href="merch.html?v=20260609-formsubmit4">Merch</a>
-        <a href="contact.html?v=20260609-formsubmit4">Contact</a>
+        <a class="active" href="band.html?v=20260610-daniphotos1">Lineup</a>
+        <a href="music.html?v=20260610-daniphotos1">Listen</a>
+        <a href="tour.html?v=20260610-daniphotos1">Tour</a>
+        <a href="merch.html?v=20260610-daniphotos1">Merch</a>
+        <a href="contact.html?v=20260610-daniphotos1">Contact</a>
       </nav>
     </header>
 
@@ -77,7 +77,12 @@
         </article>
 
         <article class="member-card">
-          <img src="assets/photos/DSC_0238.jpg" alt="Dani Colombo playing keyboards">
+          <div class="member-photo-slider" data-member-slider>
+            <img class="member-photo-slide is-active" src="assets/photos/DSC_0238.jpg" alt="Dani Colombo playing keyboards" aria-hidden="false">
+            <img class="member-photo-slide" src="assets/photos/Dani_colour.jpg" alt="Dani Colombo performing live in colour" aria-hidden="true">
+            <button class="member-photo-button member-photo-button-prev" type="button" data-slide-direction="-1" aria-label="Previous Dani photo">&lsaquo;</button>
+            <button class="member-photo-button member-photo-button-next" type="button" data-slide-direction="1" aria-label="Next Dani photo">&rsaquo;</button>
+          </div>
           <div>
             <p class="role">Keyboards / Vocals ~ Italy</p>
             <h2>Dani Colombo</h2>
@@ -91,6 +96,29 @@
         </article>
       </section>
     </main>
-    <script src="site-navigation.js?v=20260609-formsubmit4"></script>
+    <script src="site-navigation.js?v=20260610-daniphotos1"></script>
+    <script>
+      // Keeps optional member photo sliders self-contained without changing card layout.
+      document.querySelectorAll("[data-member-slider]").forEach((slider) => {
+        const slides = Array.from(slider.querySelectorAll(".member-photo-slide"));
+        const buttons = Array.from(slider.querySelectorAll("[data-slide-direction]"));
+        let currentIndex = 0;
+
+        const showSlide = (nextIndex) => {
+          currentIndex = (nextIndex + slides.length) % slides.length;
+          slides.forEach((slide, index) => {
+            const isActive = index === currentIndex;
+            slide.classList.toggle("is-active", isActive);
+            slide.setAttribute("aria-hidden", String(!isActive));
+          });
+        };
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            showSlide(currentIndex + Number(button.dataset.slideDirection));
+          });
+        });
+      });
+    </script>
   </body>
 </html>
