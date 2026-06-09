@@ -388,6 +388,10 @@ h1 {
   opacity: 1;
 }
 
+.member-photo-slide-contain {
+  object-fit: contain;
+}
+
 .member-photo-button {
   align-items: center;
   background: rgba(5, 5, 4, 0.46);
