@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact | Foreign Logic</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="contact-page">
+    <!-- Contact page uses the punk-rock artwork as the main visual anchor. -->
+    <header class="site-header solid" aria-label="Primary">
+      <a class="brand-mark" href="index.html" aria-label="Foreign Logic home">
+        <img src="assets/logo/foreign_logic_FL_round_clean_transparent.png" alt="Foreign Logic FL logo">
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="band.html">Lineup</a>
+        <a href="music.html">Listen</a>
+        <a href="tour.html">Tour Dates</a>
+        <a href="merch.html">Merch</a>
+        <a class="active" href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Sticky artwork anchors the page while the contact content scrolls beside it. -->
+      <section class="contact-hero">
+        <div class="contact-art-frame" data-contact-reveal>
+          <svg class="contact-art-mask" viewBox="0 0 1000 1500" role="img" aria-labelledby="contact-art-title">
+            <title id="contact-art-title">Foreign Logic punk-rock cartoon artwork</title>
+            <defs>
+              <clipPath id="contactSplashClip" clipPathUnits="userSpaceOnUse">
+                <path d="M24 24c136-20 181 18 297 6 132-14 219-26 344 0 119 25 185-20 282 26 65 31 69 101 45 175-23 71 18 116 8 193-10 75-54 105-32 185 22 79 53 118 20 205-25 67-82 91-61 169 20 76 67 127 26 215-36 78-103 90-104 177-1 81-68 122-159 100-96-23-131 19-227 18-95-1-133-41-230-14-100 28-175-16-182-112-6-82-54-115-48-200 6-82 51-110 25-195-26-84-55-130-23-216 26-70 83-93 56-169-27-76-66-114-36-202 24-70 83-91 62-164-21-73-74-106-39-197z"/>
+                <circle cx="126" cy="166" r="34"/>
+                <circle cx="900" cy="124" r="22"/>
+                <circle cx="942" cy="535" r="42"/>
+                <circle cx="94" cy="620" r="28"/>
+                <circle cx="911" cy="1322" r="64"/>
+                <circle cx="188" cy="1326" r="38"/>
+                <circle cx="64" cy="984" r="18"/>
+                <circle cx="938" cy="1017" r="26"/>
+                <circle cx="329" cy="74" r="19"/>
+                <circle cx="687" cy="1444" r="24"/>
+              </clipPath>
+              <clipPath id="contactRevealClip" clipPathUnits="userSpaceOnUse">
+                <rect data-contact-reveal-rect x="0" y="0" width="1000" height="0"/>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#contactSplashClip)">
+              <image href="assets/photos/Punk-rock%20cartoon.png" x="0" y="0" width="1000" height="1500" preserveAspectRatio="xMidYMid slice"/>
+              <g clip-path="url(#contactRevealClip)">
+                <image href="assets/photos/Punk-rock%20cartoon%203.png" x="-4" y="12" width="1008" height="1508" preserveAspectRatio="xMidYMid slice"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="contact-flow">
+          <section class="contact-panel split-copy contact-copy" aria-labelledby="management-title">
+            <h1 id="management-title">Management</h1>
+            <a class="contact-email" href="mailto:management@foreignlogicband.com">management@foreignlogicband.com</a>
+          </section>
+
+          <!-- Mailto form keeps the static site usable without a backend form service. -->
+          <section class="contact-panel contact-form-panel" aria-labelledby="email-title">
+            <h2 id="email-title">Get in touch</h2>
+            <form class="contact-form" action="mailto:management@foreignlogicband.com" method="post" enctype="text/plain">
+              <div class="form-row">
+                <label>
+                  <span>First Name</span>
+                  <input name="First Name" type="text" autocomplete="given-name" required>
+                </label>
+                <label>
+                  <span>Last Name</span>
+                  <input name="Last Name" type="text" autocomplete="family-name" required>
+                </label>
+              </div>
+              <label>
+                <span>Email</span>
+                <input name="Email" type="email" autocomplete="email" required>
+              </label>
+              <label>
+                <span>Message</span>
+                <textarea name="Message" rows="7" required></textarea>
+              </label>
+              <button class="button button-primary" type="submit">Send</button>
+            </form>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script>
+      // Keep the art frame fixed while scroll progress reveals the enhanced layer downward.
+      const contactReveal = document.querySelector("[data-contact-reveal]");
+      const contactSection = document.querySelector(".contact-hero");
+      const contactRevealRect = document.querySelector("[data-contact-reveal-rect]");
+
+      function setContactReveal() {
+        if (!contactReveal || !contactSection || !contactRevealRect) {
+          return;
+        }
+
+        const sectionTop = contactSection.getBoundingClientRect().top + window.scrollY;
+        const scrollRange = Math.max(contactSection.offsetHeight - window.innerHeight, 1);
+        const progress = Math.min(Math.max((window.scrollY - sectionTop) / scrollRange, 0), 1);
+        contactRevealRect.setAttribute("height", (progress * 1500).toFixed(1));
+      }
+
+      setContactReveal();
+      window.addEventListener("scroll", setContactReveal, { passive: true });
+      window.addEventListener("resize", setContactReveal);
+    </script>
+    <script src="site-navigation.js"></script>
+  </body>
+</html>

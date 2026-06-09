@@ -1,0 +1,850 @@
+:root {
+  --ink: #f7f3ea;
+  --muted: #bbb4aa;
+  --paper: #11100f;
+  --panel: #1b1917;
+  --panel-strong: #24211e;
+  --line: rgba(247, 243, 234, 0.16);
+  --accent: #d84b3f;
+  --accent-strong: #ff6a58;
+  --shadow: rgba(0, 0, 0, 0.52);
+  --title-font: "Copperplate Gothic Bold", "Copperplate Gothic Light", "Perpetua Titling MT", "Trajan Pro", Cinzel, Georgia, serif;
+  --text-font: Bahnschrift, "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text-font);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--paper);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Header is compact and touch-friendly while staying legible over photography. */
+.site-header {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  left: 0;
+  padding: 22px clamp(18px, 4vw, 56px);
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header.solid {
+  background: rgba(17, 16, 15, 0.94);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+}
+
+.brand-mark {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 58px;
+  justify-content: center;
+  width: 92px;
+}
+
+.brand-mark img {
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.72));
+  max-height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.nav-links {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  font-family: var(--title-font);
+  font-size: 13px;
+  font-weight: 800;
+  padding: 10px 14px;
+  text-transform: uppercase;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+/* The home view is a true full-screen band image, with text over the photo. */
+.hero {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.16) 42%, rgba(0, 0, 0, 0.70)),
+    url("assets/hero-extended-v1-style-hd-master.jpg") center center / cover no-repeat;
+  background-color: #050504;
+  background-size: auto 106%;
+  min-height: 100svh;
+  padding: 140px clamp(18px, 5vw, 72px) 72px;
+  position: relative;
+}
+
+.hero-copy {
+  left: 50%;
+  max-width: min(1100px, calc(100% - 36px));
+  position: absolute;
+  text-align: center;
+  top: clamp(88px, 14svh, 140px);
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.eyebrow,
+.role,
+.tour-date {
+  color: var(--accent-strong);
+  font-family: var(--title-font);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-family: var(--title-font);
+  font-size: 128px;
+  font-weight: 900;
+  line-height: 0.88;
+  margin-bottom: 22px;
+  text-shadow: 0 10px 34px rgba(0, 0, 0, 0.82);
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: 0;
+  margin-bottom: 18px;
+}
+
+.hero-logo {
+  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.92));
+  margin: 0 auto;
+  max-height: min(212px, 30svh);
+  object-fit: contain;
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 0%, black 18%, black 82%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, black 18%, black 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  mask-image:
+    linear-gradient(90deg, transparent 0%, black 18%, black 82%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, black 18%, black 100%);
+  width: min(1080px, 96vw);
+}
+
+.hero-line {
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 auto 28px;
+  max-width: 560px;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.86);
+}
+
+.hero-actions,
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.button {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  font-family: var(--title-font);
+  font-size: 14px;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  text-transform: uppercase;
+}
+
+.button-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.button-secondary {
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.photo-credit,
+.copyright-mark {
+  bottom: 28px;
+  color: rgba(187, 180, 170, 0.58);
+  font-family: var(--title-font);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+  position: absolute;
+  text-transform: uppercase;
+}
+
+.photo-credit:hover {
+  color: rgba(247, 243, 234, 0.82);
+}
+
+.photo-credit {
+  right: clamp(18px, 5vw, 72px);
+}
+
+.copyright-mark {
+  left: clamp(18px, 5vw, 72px);
+  margin: 0;
+}
+
+.newsletter-panel {
+  align-items: center;
+  background: rgba(7, 6, 5, 0.88);
+  border: 1px solid rgba(197, 38, 47, 0.48);
+  border-radius: 8px;
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.72);
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(180px, 0.8fr) minmax(260px, 1.2fr);
+  left: 50%;
+  max-width: 920px;
+  padding: 22px 56px 22px 24px;
+  position: fixed;
+  top: clamp(290px, 38svh, 386px);
+  transform: translate(-50%, calc(100svh + 120%));
+  transition: transform 620ms cubic-bezier(0.19, 1, 0.22, 1);
+  width: min(calc(100% - 28px), 920px);
+  z-index: 20;
+}
+
+.newsletter-panel.is-visible {
+  transform: translate(-50%, 0);
+}
+
+.newsletter-panel .eyebrow {
+  color: #c5262f;
+}
+
+.newsletter-panel h2 {
+  font-family: var(--title-font);
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 0.95;
+  margin: 0;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.78);
+  text-transform: uppercase;
+}
+
+.newsletter-close {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 24px;
+  height: 36px;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  width: 36px;
+}
+
+.newsletter-close:hover {
+  background: #c5262f;
+  border-color: #c5262f;
+  color: white;
+}
+
+.newsletter-form {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.newsletter-form input {
+  background: rgba(5, 5, 4, 0.66);
+  border: 1px solid rgba(247, 243, 234, 0.22);
+  border-radius: 999px;
+  color: var(--ink);
+  font: 700 16px var(--text-font);
+  min-height: 46px;
+  min-width: 0;
+  padding: 0 16px;
+}
+
+.newsletter-form input::placeholder {
+  color: rgba(247, 243, 234, 0.58);
+}
+
+.newsletter-form .button-primary {
+  background: #c5262f;
+}
+
+/* Interior pages use generous spacing and high-contrast sections for readability. */
+.page-hero,
+.split-page,
+.member-grid,
+.merch-grid,
+.tour-list {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: clamp(48px, 8vw, 92px) clamp(18px, 4vw, 40px);
+}
+
+.page-hero.narrow {
+  max-width: 920px;
+}
+
+.page-hero h1,
+.split-copy h1 {
+  font-size: 72px;
+  line-height: 0.96;
+}
+
+.page-hero p,
+.split-copy p,
+.member-card p,
+.tour-row p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.member-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-top: 0;
+}
+
+.member-card,
+.merch-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 18px 48px var(--shadow);
+  overflow: hidden;
+}
+
+.member-card img,
+.merch-card img {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.member-card div {
+  padding: 24px;
+}
+
+.member-card h2,
+.merch-card h2 {
+  font-family: var(--title-font);
+  font-size: 34px;
+  line-height: 1;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.member-video {
+  margin-top: 18px;
+}
+
+.member-video summary {
+  border: 1px solid rgba(197, 38, 47, 0.54);
+  border-radius: 999px;
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--title-font);
+  font-size: 13px;
+  font-weight: 800;
+  padding: 10px 14px;
+  text-transform: uppercase;
+}
+
+.member-video summary:hover {
+  background: #c5262f;
+  border-color: #c5262f;
+  color: white;
+}
+
+.member-video iframe {
+  aspect-ratio: 16 / 9;
+  background: #050504;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 18px 42px var(--shadow);
+  display: block;
+  margin-top: 14px;
+  width: 100%;
+}
+
+.merch-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-top: 0;
+}
+
+.merch-card {
+  background: var(--panel-strong);
+}
+
+.merch-card img {
+  background: #0d0c0b;
+}
+
+.merch-card-copy {
+  align-items: center;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 24px;
+}
+
+.merch-card-copy .role,
+.merch-card-copy h2 {
+  grid-column: 1 / -1;
+}
+
+.price {
+  color: var(--ink);
+  font-family: var(--title-font);
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+  margin: 0;
+}
+
+.origin {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.split-page {
+  align-items: center;
+  display: grid;
+  gap: clamp(24px, 6vw, 72px);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  min-height: calc(100svh - 76px);
+}
+
+.split-page img {
+  aspect-ratio: 4 / 5;
+  border-radius: 8px;
+  box-shadow: 0 18px 52px var(--shadow);
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Featured video keeps the music page balanced with the existing split layout. */
+.feature-video {
+  aspect-ratio: 16 / 9;
+  background: #050504;
+  border-radius: 8px;
+  box-shadow: 0 18px 52px var(--shadow);
+  display: block;
+  width: 100%;
+}
+
+/* Video section follows the album placeholder as a scroll-down feature. */
+.video-section {
+  align-items: center;
+  display: grid;
+  gap: clamp(24px, 6vw, 72px);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 0 clamp(18px, 4vw, 40px) clamp(56px, 8vw, 96px);
+}
+
+.video-copy {
+  max-width: 720px;
+}
+
+.video-copy h2 {
+  font-family: var(--title-font);
+  font-size: 48px;
+  line-height: 0.96;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.video-copy p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* Song players use native controls so the local audio files stay easy to test. */
+.songs-section {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 0 clamp(18px, 4vw, 40px) clamp(56px, 8vw, 96px);
+}
+
+.songs-heading .eyebrow {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.songs-heading h2 {
+  font-family: var(--title-font);
+  font-size: 48px;
+  line-height: 0.96;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.track-list {
+  display: grid;
+  gap: 12px;
+}
+
+.track-card {
+  align-items: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.9fr);
+  padding: 22px;
+}
+
+.track-card h3 {
+  font-family: var(--title-font);
+  font-size: 28px;
+  line-height: 1;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.track-card p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.track-card audio {
+  width: 100%;
+}
+
+.contact-page {
+  background: #070605;
+}
+
+.contact-page .site-header.solid {
+  background: rgba(7, 6, 5, 0.90);
+}
+
+.contact-hero {
+  align-items: start;
+  display: grid;
+  gap: clamp(28px, 6vw, 80px);
+  grid-template-columns: minmax(300px, 0.92fr) minmax(280px, 0.78fr);
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: clamp(36px, 6vw, 72px) clamp(18px, 4vw, 40px);
+}
+
+.contact-art-frame {
+  align-self: start;
+  position: sticky;
+  top: 104px;
+}
+
+.contact-art-mask {
+  aspect-ratio: 2 / 3;
+  display: block;
+  filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.66));
+  height: min(90svh, 1040px);
+  width: 100%;
+}
+
+.contact-page .split-copy {
+  max-width: 520px;
+}
+
+.contact-flow {
+  display: grid;
+}
+
+.contact-panel {
+  align-content: center;
+  min-height: calc(100svh - 82px);
+}
+
+.contact-copy {
+  text-align: left;
+}
+
+.contact-page .split-copy h1 {
+  font-size: 68px;
+  line-height: 0.96;
+}
+
+.contact-email {
+  color: var(--ink);
+  display: inline-block;
+  font-size: clamp(18px, 2.1vw, 28px);
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.contact-email:hover {
+  color: #c5262f;
+}
+
+.contact-form-panel h2 {
+  font-family: var(--title-font);
+  font-size: 56px;
+  line-height: 0.96;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+}
+
+.contact-form {
+  display: grid;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-form span {
+  color: var(--muted);
+  font-family: var(--title-font);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: rgba(247, 243, 234, 0.06);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  font: inherit;
+  min-height: 48px;
+  padding: 12px 14px;
+  width: 100%;
+}
+
+.contact-form textarea {
+  min-height: 164px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent-strong);
+  outline: 2px solid rgba(255, 106, 88, 0.22);
+}
+
+.tour-list {
+  display: grid;
+  gap: 12px;
+  padding-top: 0;
+}
+
+.tour-row {
+  align-items: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr auto auto;
+  padding: 22px;
+}
+
+.tour-row h2 {
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 18px;
+  }
+
+  .nav-links {
+    justify-content: flex-start;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    padding: 9px 11px;
+  }
+
+  .brand-mark {
+    height: 48px;
+    width: 76px;
+  }
+
+  .hero {
+    background-position: center center;
+    background-size: auto 106%;
+    padding-bottom: 54px;
+  }
+
+  .hero-copy {
+    top: 108px;
+  }
+
+  h1 {
+    font-size: 72px;
+  }
+
+  .hero h1 {
+    margin-bottom: 14px;
+  }
+
+  .hero-logo {
+    max-height: 136px;
+    width: min(660px, 96vw);
+  }
+
+  .hero-line {
+    font-size: 18px;
+  }
+
+  .page-hero h1,
+  .split-copy h1 {
+    font-size: 48px;
+  }
+
+  .member-card h2 {
+    font-size: 30px;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .newsletter-panel,
+  .newsletter-form {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-panel {
+    padding: 22px 20px 20px;
+    width: 100%;
+  }
+
+  .newsletter-form .button {
+    width: 100%;
+  }
+
+  .photo-credit,
+  .copyright-mark {
+    display: none;
+  }
+
+  .member-grid,
+  .merch-grid,
+  .contact-hero,
+  .form-row,
+  .split-page,
+  .video-section,
+  .track-card,
+  .tour-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-art-frame {
+    position: static;
+  }
+
+  .contact-art-mask {
+    height: auto;
+    max-height: none;
+    min-height: 560px;
+  }
+
+  .contact-panel {
+    min-height: auto;
+    padding: 36px 0;
+  }
+
+  .contact-form-panel h2 {
+    font-size: 42px;
+  }
+
+  .member-card div,
+  .merch-card-copy {
+    padding: 20px;
+  }
+
+  .merch-card-copy {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-aspect-ratio: 16 / 9) {
+  .hero {
+    background-size: 106% auto;
+  }
+}

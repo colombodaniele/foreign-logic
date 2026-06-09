@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Listen | Foreign Logic</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <!-- Shared navigation with the current page highlighted. -->
+    <header class="site-header solid" aria-label="Primary">
+      <a class="brand-mark" href="index.html" aria-label="Foreign Logic home">
+        <img src="assets/logo/foreign_logic_FL_round_clean_transparent.png" alt="Foreign Logic FL logo">
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="band.html">Lineup</a>
+        <a class="active" href="music.html">Listen</a>
+        <a href="tour.html">Tour Dates</a>
+        <a href="merch.html">Merch</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Lead section keeps the album placeholder visible until final streaming links are ready. -->
+      <section class="split-page">
+        <div class="split-copy">
+          <p class="eyebrow">Listen</p>
+          <h1>Debut album coming soon</h1>
+        </div>
+        <img src="assets/photos/DSC_0291.jpg" alt="Foreign Logic backstage">
+      </section>
+
+      <!-- Live performance video sits below the lead music section for scroll discovery. -->
+      <section class="video-section" aria-labelledby="live-video-title">
+        <div class="video-copy">
+          <p class="eyebrow">Live video</p>
+          <h2 id="live-video-title">No Stars Tonight</h2>
+          <p>Foreign Logic performing No Stars Tonight while backing artist Robert Wolf.</p>
+        </div>
+        <video class="feature-video" controls preload="metadata" aria-label="Foreign Logic performing No Stars Tonight with Robert Wolf">
+          <source src="assets/NoStarsTonight_web.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <!-- Audio list highlights available demos and covers from the local Music folder. -->
+      <section class="songs-section" aria-labelledby="songs-title">
+        <div class="songs-heading">
+          <p class="eyebrow">Songs</p>
+          <h2 id="songs-title">Rehearsal recordings</h2>
+        </div>
+        <div class="track-list">
+          <article class="track-card">
+            <div>
+              <h3>My Permission</h3>
+              <p>Foreign Logic</p>
+            </div>
+            <audio controls preload="metadata">
+              <source src="assets/audio/My%20Permission.mpeg" type="audio/mpeg">
+              Your browser does not support the audio tag.
+            </audio>
+          </article>
+          <article class="track-card">
+            <div>
+              <h3>Hypothetical Situation</h3>
+              <p>Foreign Logic</p>
+            </div>
+            <audio controls preload="metadata">
+              <source src="assets/audio/Hypothetical%20Situation.mpeg" type="audio/mpeg">
+              Your browser does not support the audio tag.
+            </audio>
+          </article>
+          <article class="track-card">
+            <div>
+              <h3>Georgie Porgie</h3>
+              <p>Toto cover</p>
+            </div>
+            <audio controls preload="metadata">
+              <source src="assets/audio/Georgie%20Porgie.mpeg" type="audio/mpeg">
+              Your browser does not support the audio tag.
+            </audio>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script src="site-navigation.js"></script>
+  </body>
+</html>

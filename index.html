@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Foreign Logic</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="home-page">
+    <!-- Primary navigation stays visible over the hero image for direct page access. -->
+    <header class="site-header" aria-label="Primary">
+      <a class="brand-mark" href="index.html" aria-label="Foreign Logic home">
+        <img src="assets/logo/foreign_logic_FL_round_clean_transparent.png" alt="Foreign Logic FL logo">
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="band.html">Lineup</a>
+        <a href="music.html">Listen</a>
+        <a href="tour.html">Tour Dates</a>
+        <a href="merch.html">Merch</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Full-screen opening image establishes the band's visual identity immediately. -->
+    <main class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">
+          <img class="hero-logo" src="assets/logo/foreign_logic_wordmark_clean_transparent.png" alt="Foreign Logic">
+        </h1>
+      </div>
+      <p class="copyright-mark">&copy; Foreign Logic 2026</p>
+      <a class="photo-credit" href="https://www.instagram.com/foticosdelajudi/" target="_blank" rel="noopener noreferrer">PH: Judit Navarro</a>
+    </main>
+
+    <!-- Newsletter prompt appears when the home page is entered from outside the site. -->
+    <aside class="newsletter-panel" data-newsletter-panel aria-label="Newsletter signup" aria-hidden="true">
+      <button class="newsletter-close" type="button" data-newsletter-close aria-label="Close newsletter signup">&times;</button>
+      <div>
+        <p class="eyebrow">Newsletter</p>
+        <h2>Stay in the loop</h2>
+      </div>
+      <form class="newsletter-form" data-newsletter-form>
+        <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+        <button class="button button-primary" type="submit">Sign Up</button>
+      </form>
+    </aside>
+
+    <script src="site-navigation.js"></script>
+    <script>
+      // Show the prompt for external/direct landing entries, but not after in-site navigation.
+      (() => {
+        const internalNavigationKey = "foreignLogicInternalNavigation";
+        const panel = document.querySelector("[data-newsletter-panel]");
+        const closeButton = document.querySelector("[data-newsletter-close]");
+        const form = document.querySelector("[data-newsletter-form]");
+
+        const dismissPanel = () => {
+          panel.classList.remove("is-visible");
+          panel.setAttribute("aria-hidden", "true");
+        };
+
+        const revealPanel = () => {
+          panel.classList.add("is-visible");
+          panel.setAttribute("aria-hidden", "false");
+        };
+
+        const cameFromInternalClick = () => {
+          try {
+            const didNavigateInternally = sessionStorage.getItem(internalNavigationKey) === "true";
+            sessionStorage.removeItem(internalNavigationKey);
+            return didNavigateInternally;
+          } catch (error) {
+            return false;
+          }
+        };
+
+        const isInternalReferrer = () => {
+          if (!document.referrer) {
+            return false;
+          }
+
+          try {
+            const referrerUrl = new URL(document.referrer);
+            const currentUrl = new URL(window.location.href);
+
+            if (referrerUrl.origin === currentUrl.origin && currentUrl.origin !== "null") {
+              return true;
+            }
+
+            // Local file previews do not have a useful origin, so compare the site folder instead.
+            if (referrerUrl.protocol === "file:" && currentUrl.protocol === "file:") {
+              const currentFolder = currentUrl.pathname.replace(/\/[^/]*$/, "/");
+              return referrerUrl.pathname.startsWith(currentFolder);
+            }
+          } catch (error) {
+            return false;
+          }
+
+          return false;
+        };
+
+        if (!cameFromInternalClick() && !isInternalReferrer()) {
+          setTimeout(() => requestAnimationFrame(revealPanel), 2000);
+        }
+
+        closeButton.addEventListener("click", dismissPanel);
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          dismissPanel();
+        });
+      })();
+    </script>
+  </body>
+</html>
