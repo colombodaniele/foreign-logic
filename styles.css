@@ -605,7 +605,7 @@ h1 {
   left: max(clamp(18px, 4vw, 40px), calc((100vw - 1240px) / 2 + clamp(18px, 4vw, 40px)));
   pointer-events: none;
   position: fixed;
-  top: calc(56px + clamp(14px, 2.5vw, 34px));
+  top: calc(60px + clamp(14px, 2.5vw, 34px));
   width: min(46vw, 620px);
   z-index: 0;
 }
