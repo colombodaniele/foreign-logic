@@ -605,7 +605,7 @@ h1 {
   left: max(clamp(18px, 4vw, 40px), calc((100vw - 1240px) / 2 + clamp(18px, 4vw, 40px)));
   pointer-events: none;
   position: fixed;
-  top: calc(58px + clamp(16px, 2.7vw, 38px));
+  top: calc(52px + clamp(14px, 2.5vw, 34px));
   width: min(46vw, 620px);
   z-index: 0;
 }
@@ -636,7 +636,7 @@ h1 {
 
 .contact-copy {
   text-align: left;
-  transform: translateY(-24px);
+  transform: translateY(-34px);
 }
 
 .contact-page .split-copy h1 {
