@@ -580,6 +580,7 @@ h1 {
 
 .contact-page {
   background: #070605;
+  overflow-x: hidden;
 }
 
 .contact-page .site-header.solid {
@@ -591,15 +592,22 @@ h1 {
   display: grid;
   gap: clamp(28px, 6vw, 80px);
   grid-template-columns: minmax(300px, 0.92fr) minmax(280px, 0.78fr);
+  isolation: isolate;
   margin: 0 auto;
   max-width: 1240px;
+  min-height: 200svh;
   padding: clamp(36px, 6vw, 72px) clamp(18px, 4vw, 40px);
+  position: relative;
 }
 
 .contact-art-frame {
   align-self: start;
-  position: sticky;
-  top: 104px;
+  left: max(clamp(18px, 4vw, 40px), calc((100vw - 1240px) / 2 + clamp(18px, 4vw, 40px)));
+  pointer-events: none;
+  position: fixed;
+  top: calc(82px + clamp(36px, 6vw, 72px));
+  width: min(46vw, 620px);
+  z-index: 0;
 }
 
 .contact-art-mask {
@@ -616,6 +624,9 @@ h1 {
 
 .contact-flow {
   display: grid;
+  grid-column: 2;
+  position: relative;
+  z-index: 1;
 }
 
 .contact-panel {
@@ -866,6 +877,7 @@ h1 {
     inset: 0;
     pointer-events: none;
     position: fixed;
+    width: 100vw;
     z-index: 0;
   }
 
@@ -888,6 +900,7 @@ h1 {
   }
 
   .contact-flow {
+    grid-column: auto;
     position: relative;
     z-index: 1;
   }
