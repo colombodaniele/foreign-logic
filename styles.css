@@ -703,7 +703,7 @@ h1 {
 .website-credit {
   color: rgba(187, 180, 170, 0.78);
   font-family: var(--title-font);
-  font-size: clamp(7px, 1.9vw, 11px);
+  font-size: clamp(7.2px, 2.1vw, 13px);
   font-weight: 800;
   line-height: 1.45;
   margin: 32px 0 0;
