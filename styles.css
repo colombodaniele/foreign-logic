@@ -906,6 +906,12 @@ h1 {
     padding-top: 104px;
   }
 
+  .contact-form input,
+  .contact-form textarea {
+    background: rgba(247, 243, 234, 0.11);
+    border-color: rgba(247, 243, 234, 0.30);
+  }
+
   .contact-copy {
     transform: none;
   }
