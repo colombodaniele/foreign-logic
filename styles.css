@@ -605,7 +605,7 @@ h1 {
   left: max(clamp(18px, 4vw, 40px), calc((100vw - 1240px) / 2 + clamp(18px, 4vw, 40px)));
   pointer-events: none;
   position: fixed;
-  top: calc(52px + clamp(14px, 2.5vw, 34px));
+  top: calc(56px + clamp(14px, 2.5vw, 34px));
   width: min(46vw, 620px);
   z-index: 0;
 }
@@ -614,7 +614,7 @@ h1 {
   aspect-ratio: 2 / 3;
   display: block;
   filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.66));
-  height: min(90svh, 1040px);
+  height: min(87svh, 1000px);
   width: 100%;
 }
 
