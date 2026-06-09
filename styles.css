@@ -767,8 +767,8 @@ h1 {
   }
 
   .hero-logo {
-    max-height: min(196px, 25svh);
-    width: min(720px, 98vw);
+    max-height: min(240px, 31svh);
+    width: min(860px, 100vw);
   }
 
   .hero-line {
@@ -777,19 +777,19 @@ h1 {
 
   .page-hero h1,
   .split-copy h1 {
-    font-size: 38px;
+    font-size: 36px;
     line-height: 1;
   }
 
   .video-copy h2,
   .songs-heading h2,
   .contact-form-panel h2 {
-    font-size: 36px;
+    font-size: 34px;
     line-height: 1;
   }
 
   .contact-page .split-copy h1 {
-    font-size: 42px;
+    font-size: 40px;
     line-height: 1;
   }
 
