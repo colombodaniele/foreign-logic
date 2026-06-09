@@ -771,9 +771,10 @@ h1 {
     left: 50%;
     max-height: min(360px, 46svh);
     max-width: none;
+    min-width: 150vw;
     position: relative;
     transform: translateX(-50%);
-    width: min(1290px, 150vw);
+    width: 150vw;
   }
 
   .hero-line {
