@@ -658,6 +658,10 @@ h1 {
   gap: 16px;
 }
 
+.contact-form [name="_honey"] {
+  display: none;
+}
+
 .form-row {
   display: grid;
   gap: 14px;
