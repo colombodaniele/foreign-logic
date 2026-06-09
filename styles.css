@@ -767,8 +767,8 @@ h1 {
   }
 
   .hero-logo {
-    max-height: min(172px, 22svh);
-    width: min(680px, 96vw);
+    max-height: min(196px, 25svh);
+    width: min(720px, 98vw);
   }
 
   .hero-line {
@@ -777,7 +777,20 @@ h1 {
 
   .page-hero h1,
   .split-copy h1 {
-    font-size: 48px;
+    font-size: 38px;
+    line-height: 1;
+  }
+
+  .video-copy h2,
+  .songs-heading h2,
+  .contact-form-panel h2 {
+    font-size: 36px;
+    line-height: 1;
+  }
+
+  .contact-page .split-copy h1 {
+    font-size: 42px;
+    line-height: 1;
   }
 
   .member-card h2 {
@@ -845,10 +858,6 @@ h1 {
   .contact-panel {
     min-height: auto;
     padding: 36px 0;
-  }
-
-  .contact-form-panel h2 {
-    font-size: 42px;
   }
 
   .member-card div,
