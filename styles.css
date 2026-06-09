@@ -299,29 +299,17 @@ h1 {
   color: white;
 }
 
-.newsletter-form {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: minmax(0, 1fr) auto;
+.newsletter-embed {
+  overflow: hidden;
 }
 
-.newsletter-form input {
-  background: rgba(5, 5, 4, 0.66);
-  border: 1px solid rgba(247, 243, 234, 0.22);
-  border-radius: 999px;
-  color: var(--ink);
-  font: 700 16px var(--text-font);
-  min-height: 46px;
-  min-width: 0;
-  padding: 0 16px;
-}
-
-.newsletter-form input::placeholder {
-  color: rgba(247, 243, 234, 0.58);
-}
-
-.newsletter-form .button-primary {
-  background: #c5262f;
+.newsletter-embed iframe {
+  border: 0;
+  display: block;
+  height: 305px;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 540px;
 }
 
 /* Interior pages use generous spacing and high-contrast sections for readability. */
@@ -831,7 +819,7 @@ h1 {
   }
 
   .newsletter-panel,
-  .newsletter-form {
+  .newsletter-embed {
     grid-template-columns: 1fr;
   }
 
@@ -840,7 +828,7 @@ h1 {
     width: 100%;
   }
 
-  .newsletter-form .button {
+  .newsletter-embed iframe {
     width: 100%;
   }
 
