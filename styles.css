@@ -769,12 +769,12 @@ h1 {
 
   .hero-logo {
     left: 50%;
-    max-height: min(306px, 39svh);
+    max-height: min(291px, 37svh);
     max-width: none;
-    min-width: 128vw;
+    min-width: 122vw;
     position: relative;
     transform: translateX(-50%);
-    width: 128vw;
+    width: 122vw;
   }
 
   .hero-line {
