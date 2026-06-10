@@ -63,7 +63,13 @@
         </article>
 
         <article class="member-card">
-          <img src="assets/photos/DSC_0222.jpg" alt="Mikko Malmivaara playing guitar">
+          <div class="member-photo-slider" data-member-slider>
+            <img class="member-photo-slide is-active" src="assets/photos/DSC_0222.jpg" alt="Mikko Malmivaara playing guitar" aria-hidden="false">
+            <img class="member-photo-slide" src="assets/photos/mikko%203.JPG" alt="Mikko Malmivaara performing live" aria-hidden="true">
+            <img class="member-photo-slide" src="assets/photos/Mikko%20GTR%20Smile.JPG" alt="Mikko Malmivaara smiling with guitar" aria-hidden="true">
+            <button class="member-photo-button member-photo-button-prev" type="button" data-slide-direction="-1" aria-label="Previous Mikko photo">&lsaquo;</button>
+            <button class="member-photo-button member-photo-button-next" type="button" data-slide-direction="1" aria-label="Next Mikko photo">&rsaquo;</button>
+          </div>
           <div>
             <p class="role">Guitar / Vocals ~ Finland</p>
             <h2>Mikko Malmivaara</h2>
