@@ -1,6 +1,7 @@
 // Builds branded controls while leaving native audio available if JavaScript fails.
 (() => {
   const audioElements = Array.from(document.querySelectorAll(".track-card audio"));
+  const videoElements = Array.from(document.querySelectorAll("video"));
 
   if (!audioElements.length) {
     return;
@@ -21,6 +22,12 @@
       if (audio !== activeAudio) {
         audio.pause();
       }
+    });
+  };
+
+  const pauseVideos = () => {
+    videoElements.forEach((video) => {
+      video.pause();
     });
   };
 
@@ -69,6 +76,7 @@
     toggle.addEventListener("click", () => {
       if (audio.paused) {
         pauseOtherTracks(audio);
+        pauseVideos();
         audio.play().catch(updatePlayState);
       } else {
         audio.pause();
@@ -86,6 +94,7 @@
 
     audio.addEventListener("play", () => {
       pauseOtherTracks(audio);
+      pauseVideos();
       updatePlayState();
     });
     audio.addEventListener("pause", updatePlayState);
@@ -96,5 +105,13 @@
 
     updateProgress();
     updatePlayState();
+  });
+
+  videoElements.forEach((video) => {
+    video.addEventListener("play", () => {
+      audioElements.forEach((audio) => {
+        audio.pause();
+      });
+    });
   });
 })();
