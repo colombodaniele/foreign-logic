@@ -398,6 +398,12 @@ h1 {
   transform-origin: center 18%;
 }
 
+/* Portrait Mikko slides keep faces visible inside the landscape card. */
+.member-photo-slide-mikko-portrait {
+  transform: scale(1.12);
+  transform-origin: center top;
+}
+
 .member-photo-button {
   align-items: center;
   background: rgba(5, 5, 4, 0.46);
