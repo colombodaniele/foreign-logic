@@ -574,7 +574,7 @@ h1 {
   line-height: 1.6;
 }
 
-/* Song players use native controls so the local audio files stay easy to test. */
+/* Song players keep native audio as fallback, then add branded controls when JS is active. */
 .songs-section {
   margin: 0 auto;
   max-width: 1180px;
@@ -628,6 +628,114 @@ h1 {
 
 .track-card audio {
   width: 100%;
+}
+
+.audio-enhanced .track-card audio {
+  display: none;
+}
+
+.custom-audio-player {
+  align-items: center;
+  background: rgba(5, 5, 4, 0.78);
+  border: 1px solid rgba(247, 243, 234, 0.18);
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.26);
+  display: grid;
+  gap: 14px;
+  grid-template-columns: auto minmax(0, 1fr);
+  min-width: 0;
+  padding: 12px 14px;
+}
+
+.audio-toggle {
+  align-items: center;
+  background: #050504;
+  border: 1px solid rgba(247, 243, 234, 0.30);
+  border-radius: 999px;
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  height: 46px;
+  justify-content: center;
+  transition: background 160ms ease, border-color 160ms ease;
+  width: 46px;
+}
+
+.audio-toggle:hover,
+.audio-toggle.is-playing {
+  background: #c5262f;
+  border-color: #c5262f;
+}
+
+.audio-icon {
+  display: block;
+  height: 16px;
+  position: relative;
+  width: 16px;
+}
+
+.audio-icon::before {
+  border-bottom: 8px solid transparent;
+  border-left: 13px solid currentColor;
+  border-top: 8px solid transparent;
+  content: "";
+  left: 3px;
+  position: absolute;
+  top: 0;
+}
+
+.audio-toggle.is-playing .audio-icon::before {
+  background: currentColor;
+  border: 0;
+  box-shadow: 8px 0 0 currentColor;
+  height: 16px;
+  left: 2px;
+  width: 4px;
+}
+
+.audio-control-body {
+  min-width: 0;
+}
+
+.audio-seek {
+  --progress: 0%;
+  appearance: none;
+  background: linear-gradient(90deg, var(--ink) 0 var(--progress), rgba(247, 243, 234, 0.18) var(--progress) 100%);
+  border-radius: 999px;
+  cursor: pointer;
+  display: block;
+  height: 8px;
+  margin: 0;
+  width: 100%;
+}
+
+.audio-seek::-webkit-slider-thumb {
+  appearance: none;
+  background: #050504;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+}
+
+.audio-seek::-moz-range-thumb {
+  background: #050504;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  height: 14px;
+  width: 14px;
+}
+
+.audio-time {
+  color: rgba(187, 180, 170, 0.78);
+  display: flex;
+  font-family: var(--title-font);
+  font-size: 11px;
+  font-weight: 800;
+  justify-content: space-between;
+  line-height: 1;
+  margin-top: 10px;
+  text-transform: uppercase;
 }
 
 .contact-page {
