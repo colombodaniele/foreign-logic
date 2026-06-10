@@ -392,6 +392,12 @@ h1 {
   object-fit: contain;
 }
 
+/* Tightens Dani's colour slide while keeping the head mostly preserved. */
+.member-photo-slide-dani-colour {
+  transform: scale(1.07);
+  transform-origin: center 18%;
+}
+
 .member-photo-button {
   align-items: center;
   background: rgba(5, 5, 4, 0.46);
