@@ -8,20 +8,20 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lineup | Foreign Logic</title>
-    <link rel="stylesheet" href="styles.css?v=20260610-mikkozoom1">
+    <link rel="stylesheet" href="styles.css?v=20260612-davephoto1">
   </head>
   <body>
     <!-- Shared navigation keeps the small static site feeling like one product. -->
     <header class="site-header solid" aria-label="Primary">
-      <a class="brand-mark" href="index.html?v=20260610-mikkozoom1" aria-label="Foreign Logic home">
+      <a class="brand-mark" href="index.html?v=20260612-davephoto1" aria-label="Foreign Logic home">
         <img src="assets/logo/foreign_logic_FL_round_clean_transparent.png" alt="Foreign Logic FL logo">
       </a>
       <nav class="nav-links" aria-label="Main navigation">
-        <a class="active" href="band.html?v=20260610-mikkozoom1">Lineup</a>
-        <a href="music.html?v=20260610-mikkozoom1">Listen</a>
-        <a href="tour.html?v=20260610-mikkozoom1">Tour</a>
-        <a href="merch.html?v=20260610-mikkozoom1">Merch</a>
-        <a href="contact.html?v=20260610-mikkozoom1">Contact</a>
+        <a class="active" href="band.html?v=20260612-davephoto1">Lineup</a>
+        <a href="music.html?v=20260612-davephoto1">Listen</a>
+        <a href="tour.html?v=20260612-davephoto1">Tour</a>
+        <a href="merch.html?v=20260612-davephoto1">Merch</a>
+        <a href="contact.html?v=20260612-davephoto1">Contact</a>
       </nav>
     </header>
 
@@ -35,11 +35,16 @@
 
       <section class="member-grid" aria-label="Band members">
         <article class="member-card">
-          <img src="assets/photos/DSC_0284.jpg?v=20260610-mikkozoom1" alt="Dave Williamson playing bass">
+          <div class="member-photo-slider" data-member-slider>
+            <img class="member-photo-slide is-active" src="assets/photos/DaveRockOfAges2018edit_3.jpg" alt="Dave Williamson performing live" aria-hidden="false">
+            <img class="member-photo-slide" src="assets/photos/DSC_0284.jpg?v=20260612-davephoto1" alt="Dave Williamson playing bass" aria-hidden="true">
+            <button class="member-photo-button member-photo-button-prev" type="button" data-slide-direction="-1" aria-label="Previous Dave photo">&lsaquo;</button>
+            <button class="member-photo-button member-photo-button-next" type="button" data-slide-direction="1" aria-label="Next Dave photo">&rsaquo;</button>
+          </div>
           <div>
-            <p class="role">Bass / Vocals ~ Aberdeen</p>
+            <p class="role">Bass / Vocals ~ Scotland</p>
             <h2>Dave Williamson</h2>
-            <p>Dave left Scotland in his early 20's to pursue a musical career in London.</p>
+            <p>Dave left Aberdeen in his early 20's to pursue a musical career in London.</p>
             <p>Over the years he's been fortunate enough to have worked with many different bands, artists and writers from a wide range of genres, including Beverley Knight, Emma Bunton, Ronan Keating, Heatwave, Katrina and the Waves, The Crazy World of Arthur Brown, Diamond Head, Maggie Reilly, Russell Watson, Errol Brown, Junior Giscombe, Lisa Stansfield, Dina Carroll, Leo Sayer and Band Aid co-founder Midge Ure.</p>
             <details class="member-video">
               <summary>Watch Dave live with Midge Ure</summary>
@@ -110,7 +115,7 @@
         </article>
       </section>
     </main>
-    <script src="site-navigation.js?v=20260610-mikkozoom1"></script>
+    <script src="site-navigation.js?v=20260612-davephoto1"></script>
     <script>
       // Keeps optional member photo sliders self-contained without changing card layout.
       document.querySelectorAll("[data-member-slider]").forEach((slider) => {
