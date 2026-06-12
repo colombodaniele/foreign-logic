@@ -7,20 +7,20 @@
     <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tour Dates | Foreign Logic</title>
-    <link rel="stylesheet" href="styles.css?v=20260612-mdorder1">
+    <link rel="stylesheet" href="styles.css?v=20260612-tournotify1">
   </head>
   <body>
     <!-- Shared navigation with the current page highlighted. -->
     <header class="site-header solid" aria-label="Primary">
-      <a class="brand-mark" href="index.html?v=20260612-mdorder1" aria-label="Foreign Logic home">
+      <a class="brand-mark" href="index.html?v=20260612-tournotify1" aria-label="Foreign Logic home">
         <img src="assets/logo/foreign_logic_FL_round_clean_transparent.png" alt="Foreign Logic FL logo">
       </a>
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="band.html?v=20260612-mdorder1">Lineup</a>
-        <a href="music.html?v=20260612-mdorder1">Listen</a>
-        <a class="active" href="tour.html?v=20260612-mdorder1">Tour</a>
-        <a href="merch.html?v=20260612-mdorder1">Merch</a>
-        <a href="contact.html?v=20260612-mdorder1">Contact</a>
+        <a href="band.html?v=20260612-tournotify1">Lineup</a>
+        <a href="music.html?v=20260612-tournotify1">Listen</a>
+        <a class="active" href="tour.html?v=20260612-tournotify1">Tour</a>
+        <a href="merch.html?v=20260612-tournotify1">Merch</a>
+        <a href="contact.html?v=20260612-tournotify1">Contact</a>
       </nav>
     </header>
 
@@ -46,10 +46,59 @@
             <h2>More dates coming soon</h2>
           </div>
           <p>City TBA</p>
-          <a class="button button-secondary" href="#">Notify me</a>
+          <a class="button button-secondary" href="#newsletter-signup" data-newsletter-open>Notify me</a>
         </article>
       </section>
     </main>
-    <script src="site-navigation.js?v=20260612-mdorder1"></script>
+
+    <!-- Newsletter signup opens from the tour notification action. -->
+    <aside class="newsletter-panel" id="newsletter-signup" data-newsletter-panel aria-label="Newsletter signup" aria-hidden="true">
+      <button class="newsletter-close" type="button" data-newsletter-close aria-label="Close newsletter signup">&times;</button>
+      <div>
+        <p class="eyebrow">Newsletter</p>
+        <h2>Stay in the loop</h2>
+      </div>
+      <div class="newsletter-embed">
+        <iframe title="Foreign Logic newsletter signup" src="https://745cd0ac.sibforms.com/v2/serve/MUIFAAuGq1zl2odp7C91fuBGyikMVkhSdw1EM3lPYD5NBrKTl6h1o54FHrqHSb1-lKMbhWi5ydXjGFlygJR1tG8eKtMlrQuoZhPb2N4be0fX5OVlKQFT6OoAYHR33dFjEg3m-vMboeVKPxEQMtOoBJpjAeH5LhW73b49X9DIqnTot_SHtiYSpcMSHj0c47tIULD_GgdhFd3sKApWPw==" width="540" height="305" frameborder="0" scrolling="auto"></iframe>
+      </div>
+    </aside>
+
+    <script src="site-navigation.js?v=20260612-tournotify1"></script>
+    <script>
+      // Open the shared newsletter panel from the tour notification link.
+      (() => {
+        const panel = document.querySelector("[data-newsletter-panel]");
+        const closeButton = document.querySelector("[data-newsletter-close]");
+        const openLinks = document.querySelectorAll("[data-newsletter-open]");
+
+        if (!panel || !closeButton || !openLinks.length) {
+          return;
+        }
+
+        const dismissPanel = () => {
+          panel.classList.remove("is-visible");
+          panel.setAttribute("aria-hidden", "true");
+        };
+
+        const revealPanel = () => {
+          panel.classList.add("is-visible");
+          panel.setAttribute("aria-hidden", "false");
+        };
+
+        openLinks.forEach((link) => {
+          link.addEventListener("click", (event) => {
+            event.preventDefault();
+            revealPanel();
+          });
+        });
+
+        closeButton.addEventListener("click", dismissPanel);
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            dismissPanel();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
