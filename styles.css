@@ -903,7 +903,15 @@ h1 {
 .tour-list {
   display: grid;
   gap: 12px;
+  padding-bottom: clamp(24px, 4vw, 46px);
   padding-top: 0;
+}
+
+.tour-section-title {
+  font-size: 32px;
+  grid-column: 1 / -1;
+  margin: 0 0 8px;
+  text-transform: uppercase;
 }
 
 .tour-row {
