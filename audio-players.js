@@ -3,10 +3,6 @@
   const audioElements = Array.from(document.querySelectorAll(".track-card audio"));
   const videoElements = Array.from(document.querySelectorAll("video"));
 
-  if (!audioElements.length) {
-    return;
-  }
-
   const formatTime = (seconds) => {
     if (!Number.isFinite(seconds) || seconds < 0) {
       return "0:00";
@@ -31,7 +27,9 @@
     });
   };
 
-  document.body.classList.add("audio-enhanced");
+  if (audioElements.length) {
+    document.body.classList.add("audio-enhanced");
+  }
 
   audioElements.forEach((audio, index) => {
     const card = audio.closest(".track-card");
@@ -108,7 +106,17 @@
   });
 
   videoElements.forEach((video) => {
+    let startAtFeature = video.classList.contains("feature-video");
+
     video.addEventListener("play", () => {
+      // Start the featured performance at its highlight the first time it plays.
+      if (startAtFeature) {
+        startAtFeature = false;
+        if (Number.isFinite(video.duration) && video.duration > 220) {
+          video.currentTime = 220;
+        }
+      }
+
       audioElements.forEach((audio) => {
         audio.pause();
       });
