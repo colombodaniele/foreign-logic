@@ -819,6 +819,11 @@ h1 {
   overflow-wrap: anywhere;
 }
 
+.contact-copy .contact-epk-link {
+  margin-top: 16px;
+  width: fit-content;
+}
+
 .contact-email:hover {
   color: #c5262f;
 }
